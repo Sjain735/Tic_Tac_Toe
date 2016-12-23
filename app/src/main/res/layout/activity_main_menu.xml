@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sahiljain.game_tic_tac_toe.Main_Menu">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/menu_relative"
+        android:background="@color/theme_Background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MENU"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/main_text_menu"
+            android:textSize="36dp"
+            android:textStyle="bold"
+            android:layout_marginTop="60dp"
+            android:textColor="@android:color/white"
+            />
+
+        <TextView
+            android:id="@+id/main_text_easy"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="144dp"
+            android:text="EASY"
+            android:textSize="24dp"
+            android:background="@drawable/menu_button"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:paddingTop="10dp"
+            android:textColor="@android:color/white"
+            android:clickable="true"
+            />
+
+        <TextView
+            android:id="@+id/main_text_medium"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:text="MEDIUM"
+            android:textSize="24dp"
+            android:background="@drawable/menu_button"
+            android:layout_marginTop="216dp"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:paddingTop="10dp"
+            android:textColor="@android:color/white"
+            android:clickable="true"
+            />
+
+        <TextView
+            android:id="@+id/main_text_hard"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:text="HARD"
+            android:textSize="24dp"
+            android:background="@drawable/menu_button"
+            android:layout_marginTop="288dp"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:paddingTop="10dp"
+            android:textColor="@android:color/white"
+            android:clickable="true"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="380dp">
+
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/main_settings"
+                android:src="@drawable/ic_settings_white_48dp"
+                android:clickable="true"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/main_help"
+                android:src="@drawable/ic_help_outline_white_48dp"
+                android:layout_weight="1"
+                android:clickable="true"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
