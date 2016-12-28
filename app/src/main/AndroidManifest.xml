@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Game_Screen" />
+        <activity android:name=".Game_Screen_two_player"></activity>
     </application>
 
 </manifest>

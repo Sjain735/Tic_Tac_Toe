@@ -1,8 +1,6 @@
 package com.example.sahiljain.game_tic_tac_toe;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,26 +8,31 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Game_Screen extends AppCompatActivity implements View.OnClickListener{
+public class Game_Screen_two_player extends AppCompatActivity implements View.OnClickListener{
 
-    TextView text_level;
-    TextView text_current;
-    TextView text_longest;
+    TextView text_P_1;
+    TextView text_p_2;
     ImageView image_1, image_2, image_3, image_4, image_5, image_6, image_7, image_8, image_9;
-
-    int player_icon = 111, comp_icon = 0;
+    int p_move = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_screen);
+        setContentView(R.layout.activity_game_screen_two_player);
 /*
         Intent i = getIntent();
-        String level = i.getStringExtra("Level");       */
+        String icon = i.getStringExtra("Icon");
 
-        text_level = (TextView) findViewById(R.id.game_text_level);
-        text_current = (TextView) findViewById(R.id.game_text_current);
-        text_longest = (TextView) findViewById(R.id.game_text_longest);
+        if(icon.equalsIgnoreCase("Circle")){
+            p_move=2;
+        }
+        if (icon.equalsIgnoreCase("Cross")){
+            p_move=1;
+        }
+*/
+
+        text_P_1 = (TextView) findViewById(R.id.game_text_p_1);
+        text_p_2 = (TextView) findViewById(R.id.game_text_p_2);
 
         image_1 = (ImageView) findViewById(R.id.game_sign_1);
         image_2 = (ImageView) findViewById(R.id.game_sign_2);
@@ -41,7 +44,6 @@ public class Game_Screen extends AppCompatActivity implements View.OnClickListen
         image_8 = (ImageView) findViewById(R.id.game_sign_8);
         image_9 = (ImageView) findViewById(R.id.game_sign_9);
 
-
         image_1.setOnClickListener(this);
         image_2.setOnClickListener(this);
         image_3.setOnClickListener(this);
@@ -52,116 +54,118 @@ public class Game_Screen extends AppCompatActivity implements View.OnClickListen
         image_8.setOnClickListener(this);
         image_9.setOnClickListener(this);
 
- //       text_level.setText("LEVEL : " + level);
-
-        new AlertDialog.Builder(getApplicationContext())
-                .setTitle("Icon_Selection")
-                .setMessage("Choose an Icon:")
-                .setPositiveButton("Cross", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Log.d("MSG1","Positive Button");
-                        player_icon = 111;
-                        comp_icon = 0;
-                    }
-                })
-                .setNegativeButton("Zero", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Log.d("MSG2","Negative Button");
-                        player_icon = 0;
-                        comp_icon = 111;
-                    }
-                })
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
-
     }//onCreate
+
 
     @Override
     public void onClick(View v) {
 
         if (v.getId()==R.id.game_sign_1){
-            if (player_icon==111){
+            if (p_move == 1)
+            {
                 image_1.setImageResource(R.drawable.icon_cross);
+                p_move=2;
             }
-            else if(player_icon==0){
-                image_1.setImageResource(R.drawable.icon_circle);
+            else if (p_move == 2){
+               image_1.setImageResource(R.drawable.icon_circle);
+                p_move=1;
             }
-        }//Image_1
+        }
 
         if (v.getId()==R.id.game_sign_2){
-            if (player_icon==111){
+            if (p_move == 1)
+            {
                 image_2.setImageResource(R.drawable.icon_cross);
+                p_move=2;
             }
-            else if(player_icon==0){
+            else if (p_move == 2){
                 image_2.setImageResource(R.drawable.icon_circle);
+                p_move=1;
             }
-        }//Image_2
+        }
 
         if (v.getId()==R.id.game_sign_3){
-            if (player_icon==111){
+            if (p_move == 1)
+            {
                 image_3.setImageResource(R.drawable.icon_cross);
+                p_move=2;
             }
-            else if(player_icon==0){
+            else if (p_move == 2){
                 image_3.setImageResource(R.drawable.icon_circle);
+                p_move=1;
             }
-        }//Image_3
+        }
 
         if (v.getId()==R.id.game_sign_4){
-            if (player_icon==111){
+            if (p_move == 1)
+            {
                 image_4.setImageResource(R.drawable.icon_cross);
+                p_move=2;
             }
-            else if(player_icon==0){
+            else if (p_move == 2){
                 image_4.setImageResource(R.drawable.icon_circle);
+                p_move=1;
             }
+        }
 
-        }//Image_4
         if (v.getId()==R.id.game_sign_5){
-            if (player_icon==111){
+            if (p_move == 1)
+            {
                 image_5.setImageResource(R.drawable.icon_cross);
+                p_move=2;
             }
-            else if(player_icon==0){
+            else if (p_move == 2){
                 image_5.setImageResource(R.drawable.icon_circle);
+                p_move=1;
             }
-
-        }//Image_5
-
+        }
         if (v.getId()==R.id.game_sign_6){
-            if (player_icon==111){
+            if (p_move == 1)
+            {
                 image_6.setImageResource(R.drawable.icon_cross);
+                p_move=2;
             }
-            else if(player_icon==0){
+            else if (p_move == 2){
                 image_6.setImageResource(R.drawable.icon_circle);
+                p_move=1;
             }
-
-        }//Image_6
-
+        }
         if (v.getId()==R.id.game_sign_7){
-            if (player_icon==111){
+            if (p_move == 1)
+            {
                 image_7.setImageResource(R.drawable.icon_cross);
+                p_move=2;
             }
-            else if(player_icon==0){
+            else if (p_move == 2){
                 image_7.setImageResource(R.drawable.icon_circle);
+                p_move=1;
             }
-        }//Image_7
+        }
 
         if (v.getId()==R.id.game_sign_8){
-            if (player_icon==111){
+            if (p_move == 1)
+            {
                 image_8.setImageResource(R.drawable.icon_cross);
+                p_move=2;
             }
-            else if(player_icon==0){
+            else if (p_move == 2){
                 image_8.setImageResource(R.drawable.icon_circle);
+                p_move=1;
             }
-        }//Image_8
+        }
 
         if (v.getId()==R.id.game_sign_9){
-            if (player_icon==111){
+            if (p_move == 1)
+            {
                 image_9.setImageResource(R.drawable.icon_cross);
+                p_move=2;
             }
-            else if(player_icon==0){
+            else if (p_move == 2){
                 image_9.setImageResource(R.drawable.icon_circle);
+                p_move=1;
             }
-        }//Image_9
+        }
 
     }//onClick
 
-}//Class Game Screen
+}//Class

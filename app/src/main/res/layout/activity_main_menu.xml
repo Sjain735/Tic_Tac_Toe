@@ -26,11 +26,11 @@
             />
 
         <TextView
-            android:id="@+id/main_text_easy"
+            android:id="@+id/main_text_one_pl"
             android:layout_width="240dp"
             android:layout_height="48dp"
             android:layout_marginTop="144dp"
-            android:text="EASY"
+            android:text="Single Player"
             android:textSize="24dp"
             android:background="@drawable/menu_button"
             android:layout_centerHorizontal="true"
@@ -41,10 +41,10 @@
             />
 
         <TextView
-            android:id="@+id/main_text_medium"
+            android:id="@+id/main_text_two_pl"
             android:layout_width="240dp"
             android:layout_height="48dp"
-            android:text="MEDIUM"
+            android:text="Two Players"
             android:textSize="24dp"
             android:background="@drawable/menu_button"
             android:layout_marginTop="216dp"
@@ -56,10 +56,10 @@
             />
 
         <TextView
-            android:id="@+id/main_text_hard"
+            android:id="@+id/main_text_stats"
             android:layout_width="240dp"
             android:layout_height="48dp"
-            android:text="HARD"
+            android:text="Statistics"
             android:textSize="24dp"
             android:background="@drawable/menu_button"
             android:layout_marginTop="288dp"
