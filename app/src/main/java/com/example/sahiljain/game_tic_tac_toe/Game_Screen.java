@@ -1,14 +1,21 @@
 package com.example.sahiljain.game_tic_tac_toe;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
+
+import java.util.Random;
 
 public class Game_Screen extends AppCompatActivity implements View.OnClickListener{
 
@@ -16,6 +23,8 @@ public class Game_Screen extends AppCompatActivity implements View.OnClickListen
     TextView text_current;
     TextView text_longest;
     ImageView image_1, image_2, image_3, image_4, image_5, image_6, image_7, image_8, image_9;
+
+    int [] moves = {1,2,3,4,5,6,7,8,9}; int n = 9;
 
     int player_icon = 111, comp_icon = 0;
 
@@ -53,31 +62,131 @@ public class Game_Screen extends AppCompatActivity implements View.OnClickListen
         image_9.setOnClickListener(this);
 
  //       text_level.setText("LEVEL : " + level);
+/*
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choose:");
+        builder.setPositiveButton("Cross", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                player_icon = 111; comp_icon = 0;
+                dialog.cancel();
+            }
+        }).create();
 
-        new AlertDialog.Builder(getApplicationContext())
-                .setTitle("Icon_Selection")
-                .setMessage("Choose an Icon:")
-                .setPositiveButton("Cross", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Log.d("MSG1","Positive Button");
-                        player_icon = 111;
-                        comp_icon = 0;
-                    }
-                })
-                .setNegativeButton("Zero", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Log.d("MSG2","Negative Button");
-                        player_icon = 0;
-                        comp_icon = 111;
-                    }
-                })
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
+        builder.setNegativeButton("Circle", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                player_icon = 0; comp_icon = 111;
+                finish();
+            }
+        }).create();
+
+        builder.setCancelable(false);
+        Dialog dialog = builder.show();
+*/
+
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View prompt_view = layoutInflater.inflate(R.layout.layout_alert_dialog,null);
+
+        final AlertDialog ald = new AlertDialog.Builder(this).create();
+
+        Button btnAdd1 = (Button) prompt_view.findViewById(R.id.ad_button_1);
+        Button btnAdd2 = (Button) prompt_view.findViewById(R.id.ad_button_2);
+
+        btnAdd1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                player_icon = 0; comp_icon = 111;
+                ald.cancel();
+            }
+        });
+        btnAdd2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                player_icon = 111; comp_icon = 0;
+                ald.cancel();
+            }
+        });
+
+        ald.setView(prompt_view);
+        ald.show();
 
     }//onCreate
 
+
+    public void comp_turn_easy (){ //A function to make computer's move in the game - Level Easy
+        Random r = new Random();
+        int i = r.nextInt(n);
+
+        if(comp_icon==0){
+            switch (moves[i]){
+                case 1 : image_1.setImageResource(R.drawable.icon_circle); break;
+                case 2 : image_2.setImageResource(R.drawable.icon_circle); break;
+                case 3 : image_3.setImageResource(R.drawable.icon_circle); break;
+                case 4 : image_4.setImageResource(R.drawable.icon_circle); break;
+                case 5 : image_5.setImageResource(R.drawable.icon_circle); break;
+                case 6 : image_6.setImageResource(R.drawable.icon_circle); break;
+                case 7 : image_7.setImageResource(R.drawable.icon_circle); break;
+                case 8 : image_8.setImageResource(R.drawable.icon_circle); break;
+                case 9 : image_9.setImageResource(R.drawable.icon_circle); break;
+            }//switch - circle
+        }//if
+        else if (comp_icon == 111){
+            switch (moves[i]){
+                case 1 : image_1.setImageResource(R.drawable.icon_cross); break;
+                case 2 : image_2.setImageResource(R.drawable.icon_cross); break;
+                case 3 : image_3.setImageResource(R.drawable.icon_cross); break;
+                case 4 : image_4.setImageResource(R.drawable.icon_cross); break;
+                case 5 : image_5.setImageResource(R.drawable.icon_cross); break;
+                case 6 : image_6.setImageResource(R.drawable.icon_cross); break;
+                case 7 : image_7.setImageResource(R.drawable.icon_cross); break;
+                case 8 : image_8.setImageResource(R.drawable.icon_cross); break;
+                case 9 : image_9.setImageResource(R.drawable.icon_cross); break;
+            }//switch - cross
+        }//else if
+
+    }//comp_turn_easy
+
+    public void array_deletion (int [] a, int pos){ //Deletion Fn
+
+        for (int i=pos-1;i<n-1;i++){
+            a[i]=a[i+1];
+        }//for
+        n--;
+
+    }//del function
+
+
     @Override
     public void onClick(View v) {
+/*
+        if (player_icon == 111){
+            switch (v.getId()){
+                case R.id.game_sign_1 : image_1.setImageResource(R.drawable.icon_cross); break;
+                case R.id.game_sign_2 : image_2.setImageResource(R.drawable.icon_cross); break;
+                case R.id.game_sign_3 : image_3.setImageResource(R.drawable.icon_cross); break;
+                case R.id.game_sign_4 : image_4.setImageResource(R.drawable.icon_cross); break;
+                case R.id.game_sign_5 : image_5.setImageResource(R.drawable.icon_cross); break;
+                case R.id.game_sign_6 : image_6.setImageResource(R.drawable.icon_cross); break;
+                case R.id.game_sign_7 : image_7.setImageResource(R.drawable.icon_cross); break;
+                case R.id.game_sign_8 : image_8.setImageResource(R.drawable.icon_cross); break;
+                case R.id.game_sign_9 : image_9.setImageResource(R.drawable.icon_cross); break;
+            }//switch - cross
+        }//if
+        else if (player_icon == 0){
+            switch (v.getId()){
+                case R.id.game_sign_1 : image_1.setImageResource(R.drawable.icon_circle); break;
+                case R.id.game_sign_2 : image_2.setImageResource(R.drawable.icon_circle); break;
+                case R.id.game_sign_3 : image_3.setImageResource(R.drawable.icon_circle); break;
+                case R.id.game_sign_4 : image_4.setImageResource(R.drawable.icon_circle); break;
+                case R.id.game_sign_5 : image_5.setImageResource(R.drawable.icon_circle); break;
+                case R.id.game_sign_6 : image_6.setImageResource(R.drawable.icon_circle); break;
+                case R.id.game_sign_7 : image_7.setImageResource(R.drawable.icon_circle); break;
+                case R.id.game_sign_8 : image_8.setImageResource(R.drawable.icon_circle); break;
+                case R.id.game_sign_9 : image_9.setImageResource(R.drawable.icon_circle); break;
+            }//switch - circle
+        }//else if
+*/
 
         if (v.getId()==R.id.game_sign_1){
             if (player_icon==111){
