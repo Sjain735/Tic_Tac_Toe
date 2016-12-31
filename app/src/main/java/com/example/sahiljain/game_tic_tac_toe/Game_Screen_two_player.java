@@ -14,8 +14,9 @@ public class Game_Screen_two_player extends AppCompatActivity implements View.On
     TextView text_P_1;
     TextView text_p_2;
     ImageView image_1, image_2, image_3, image_4, image_5, image_6, image_7, image_8, image_9;
-    int p_1_icon = 1;
-    int win[][] = new int[9][4];
+    int p_icon = 1;
+    int p1_icon = 0;
+    int rc[][] = new int[4][4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,14 +58,16 @@ public class Game_Screen_two_player extends AppCompatActivity implements View.On
         btnAdd1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                p_1_icon = 1;
+                p_icon = 1;
+                p1_icon = 0;
                 ald.cancel();
             }
         });
         btnAdd2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                p_1_icon=2;
+                p_icon = 2;
+                p1_icon = 1;
                 ald.cancel();
             }
         });
@@ -72,7 +75,7 @@ public class Game_Screen_two_player extends AppCompatActivity implements View.On
         ald.setView(prompt_view);
         ald.show();
 
-        win_init();
+        rc_init();
 
     }//onCreate
 
@@ -80,71 +83,278 @@ public class Game_Screen_two_player extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v) {
 
-        if(p_1_icon ==1){
-            p_1_icon = 2;
+        if(p_icon ==1){
+            p_icon = 2;
             switch (v.getId()){
-                case R.id.game_sign_1 : image_1.setImageResource(R.drawable.icon_circle); image_1.setClickable(false); break;
-                case R.id.game_sign_2 : image_2.setImageResource(R.drawable.icon_circle); image_2.setClickable(false); break;
-                case R.id.game_sign_3 : image_3.setImageResource(R.drawable.icon_circle); image_3.setClickable(false); break;
-                case R.id.game_sign_4 : image_4.setImageResource(R.drawable.icon_circle); image_4.setClickable(false); break;
-                case R.id.game_sign_5 : image_5.setImageResource(R.drawable.icon_circle); image_5.setClickable(false); break;
-                case R.id.game_sign_6 : image_6.setImageResource(R.drawable.icon_circle); image_6.setClickable(false); break;
-                case R.id.game_sign_7 : image_7.setImageResource(R.drawable.icon_circle); image_7.setClickable(false); break;
-                case R.id.game_sign_8 : image_8.setImageResource(R.drawable.icon_circle); image_8.setClickable(false); break;
-                case R.id.game_sign_9 : image_9.setImageResource(R.drawable.icon_circle); image_9.setClickable(false); break;
+                case R.id.game_sign_1 : image_1.setImageResource(R.drawable.icon_circle);
+                                        image_1.setClickable(false);
+                                        if (check_win_circle())
+                                            dec_win(0);
+                                        break;
+
+                case R.id.game_sign_2 : image_2.setImageResource(R.drawable.icon_circle);
+                                        image_2.setClickable(false);
+                                        if (check_win_circle())
+                                            dec_win(0);
+                                        break;
+
+                case R.id.game_sign_3 : image_3.setImageResource(R.drawable.icon_circle);
+                                        image_3.setClickable(false);
+                                        if (check_win_circle())
+                                            dec_win(0);
+                                        break;
+
+                case R.id.game_sign_4 : image_4.setImageResource(R.drawable.icon_circle);
+                                        image_4.setClickable(false);
+                                        if (check_win_circle())
+                                            dec_win(0);
+                                        break;
+
+                case R.id.game_sign_5 : image_5.setImageResource(R.drawable.icon_circle);
+                                        image_5.setClickable(false);
+                                        if (check_win_circle())
+                                        dec_win(0);
+                                        break;
+
+                case R.id.game_sign_6 : image_6.setImageResource(R.drawable.icon_circle);
+                                        image_6.setClickable(false);
+                                        if (check_win_circle())
+                                            dec_win(0);
+                                        break;
+
+                case R.id.game_sign_7 : image_7.setImageResource(R.drawable.icon_circle);
+                                        image_7.setClickable(false);
+                                        if (check_win_circle())
+                                            dec_win(0);
+                                        break;
+
+                case R.id.game_sign_8 : image_8.setImageResource(R.drawable.icon_circle);
+                                        image_8.setClickable(false);
+                                        if (check_win_circle())
+                                            dec_win(0);
+                                        break;
+
+                case R.id.game_sign_9 : image_9.setImageResource(R.drawable.icon_circle);
+                                        image_9.setClickable(false);
+                                        if (check_win_circle())
+                                            dec_win(0);
+                                        break;
+
             }//switch - circle
         }//if
-        else if (p_1_icon == 2){
-            p_1_icon = 1;
+
+        else if (p_icon == 2){
+            p_icon = 1;
             switch (v.getId()){
-                case R.id.game_sign_1 : image_1.setImageResource(R.drawable.icon_cross); image_1.setClickable(false); break;
-                case R.id.game_sign_2 : image_2.setImageResource(R.drawable.icon_cross); image_2.setClickable(false); break;
-                case R.id.game_sign_3 : image_3.setImageResource(R.drawable.icon_cross); image_3.setClickable(false); break;
-                case R.id.game_sign_4 : image_4.setImageResource(R.drawable.icon_cross); image_4.setClickable(false); break;
-                case R.id.game_sign_5 : image_5.setImageResource(R.drawable.icon_cross); image_5.setClickable(false); break;
-                case R.id.game_sign_6 : image_6.setImageResource(R.drawable.icon_cross); image_6.setClickable(false); break;
-                case R.id.game_sign_7 : image_7.setImageResource(R.drawable.icon_cross); image_7.setClickable(false); break;
-                case R.id.game_sign_8 : image_8.setImageResource(R.drawable.icon_cross); image_8.setClickable(false); break;
-                case R.id.game_sign_9 : image_9.setImageResource(R.drawable.icon_cross); image_9.setClickable(false); break;
+                case R.id.game_sign_1 : image_1.setImageResource(R.drawable.icon_cross);
+                                        image_1.setClickable(false);
+                                        if (check_win_cross())
+                                            dec_win(1);
+                                        break;
+
+                case R.id.game_sign_2 : image_2.setImageResource(R.drawable.icon_cross);
+                                        image_2.setClickable(false);
+                                        if (check_win_cross())
+                                            dec_win(1);
+                                        break;
+
+                case R.id.game_sign_3 : image_3.setImageResource(R.drawable.icon_cross);
+                                        image_3.setClickable(false);
+                                        if (check_win_cross())
+                                            dec_win(1);
+                                        break;
+
+                case R.id.game_sign_4 : image_4.setImageResource(R.drawable.icon_cross);
+                                        image_4.setClickable(false);
+                                        if (check_win_cross())
+                                            dec_win(1);
+                                        break;
+
+                case R.id.game_sign_5 : image_5.setImageResource(R.drawable.icon_cross);
+                                        image_5.setClickable(false);
+                                        if (check_win_cross())
+                                            dec_win(1);
+                                        break;
+
+                case R.id.game_sign_6 : image_6.setImageResource(R.drawable.icon_cross);
+                                        image_6.setClickable(false);
+                                        if (check_win_cross())
+                                            dec_win(1);
+                                        break;
+
+                case R.id.game_sign_7 : image_7.setImageResource(R.drawable.icon_cross);
+                                        image_7.setClickable(false);
+                                        if (check_win_cross())
+                                            dec_win(1);
+                                        break;
+
+                case R.id.game_sign_8 : image_8.setImageResource(R.drawable.icon_cross);
+                                        image_8.setClickable(false);
+                                        if (check_win_cross())
+                                            dec_win(1);
+                                        break;
+
+                case R.id.game_sign_9 : image_9.setImageResource(R.drawable.icon_cross);
+                                        image_9.setClickable(false);
+                                        if (check_win_cross())
+                                            dec_win(1);
+                                        break;
+
             }//switch - cross
         }//else if
 
     }//onClick
 
-    public void win_init(){ //Fn to initialise the 2-D array win with all possible winning conditions
+    public void rc_init(){
+        int i,j;
 
-        win[0][0] = 1;
-        win[0][1] = 2;
-        win[0][2] = 3;
+        for (i=0; i<3;i++){
+            for (j=0; j<3; j++) {
+                rc[i][j] = 5;
+            }
+        }
 
-        win[1][0] = 4;
-        win[1][1] = 5;
-        win[1][2] = 6;
+    }//rc_init()
 
-        win[2][0] = 7;
-        win[2][1] = 8;
-        win[2][2] = 9;
+    public boolean check_win_cross(){
 
-        win[3][0] = 1;
-        win[3][1] = 4;
-        win[3][2] = 7;
+        if (rc[0][0]==1){
+            if (rc[0][1]==1) {
+                if (rc[0][2] == 1)
+                    return true;
+            }
 
-        win[4][0] = 2;
-        win[4][1] = 5;
-        win[4][2] = 8;
+            if (rc[1][0]==1) {
+                if (rc[2][0] == 1)
+                    return true;
+            }
 
-        win[5][0] = 3;
-        win[5][1] = 6;
-        win[5][2] = 9;
+            if (rc[1][1]==1) {
+                if (rc[2][2] == 1)
+                    return true;
+            }
+        }//if positin 1
 
-        win[6][0] = 1;
-        win[6][1] = 5;
-        win[6][2] = 9;
+        else if(rc[0][1]==1){
+            if(rc[1][1]==1)
+                if(rc[2][1]==1)
+                    return true;
+        }//if position 2
 
-        win[7][0] = 3;
-        win[7][1] = 5;
-        win[7][2] = 7;
+        else if(rc[0][2]==1){
+            if (rc[1][1]==1) {
+                if (rc[2][0] == 1)
+                    return true;
+            }
 
-    }//win_init()
+            if (rc[1][2]==1) {
+                if (rc[2][2] == 1)
+                    return true;
+            }
+        }//if position 3
+
+        else if(rc[1][0]==1){
+            if (rc[1][1]==1)
+                if(rc[1][2]==1)
+                    return true;
+        }//if position 4
+
+        else if (rc[2][0]==1){
+            if(rc[2][1]==1)
+                if(rc[2][2]==1)
+                    return true;
+        }//if position 7
+
+        return false;
+    }//check win cross
+
+    public boolean check_win_circle(){
+
+        if (rc[0][0]==0){
+            if (rc[0][1]==0) {
+                if (rc[0][2] == 0)
+                    return true;
+            }
+
+            if (rc[1][0]==0) {
+                if (rc[2][0] == 0)
+                    return true;
+            }
+
+            if (rc[1][1]==0) {
+                if (rc[2][2] == 0)
+                    return true;
+            }
+        }//if positin 1
+
+        else if(rc[0][1]==0){
+            if(rc[1][1]==0)
+                if(rc[2][1]==0)
+                    return true;
+        }//if position 2
+
+        else if(rc[0][2]==0){
+            if (rc[1][1]==0) {
+                if (rc[2][0] == 0)
+                    return true;
+            }
+
+            if (rc[1][2]==0) {
+                if (rc[2][2]==0)
+                    return true;
+            }
+        }//if position 3
+
+        else if(rc[1][0]==0){
+            if (rc[1][1]==0)
+                if(rc[1][2]==0)
+                    return true;
+        }//if position 4
+
+        else if (rc[2][0]==0){
+            if(rc[2][1]==0)
+                if(rc[2][2]==0)
+                    return true;
+        }//if position 7
+
+        return false;
+    }//check win cross
+
+    public void dec_win(int a){
+
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View promptView = layoutInflater.inflate(R.layout.layout_alert_win, null);
+
+        final AlertDialog alertD = new AlertDialog.Builder(this).create();
+
+        TextView win_t = (TextView) promptView.findViewById(R.id.win_text);
+
+        if (a==p1_icon) {
+            win_t.setText("Player 1 Wins!");
+        }
+        else {
+            win_t.setText("Player 2 Wins!");
+        }
+
+        Button btnAdd1 = (Button) promptView.findViewById(R.id.win_bt_1);
+
+        Button btnAdd2 = (Button) promptView.findViewById(R.id.win_bt_2);
+
+        btnAdd1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                onCreate(Bundle.EMPTY);
+            }
+        });
+
+        btnAdd2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        alertD.setView(promptView);
+        alertD.show();
+
+    }//dec_win()
 
 }//Class
