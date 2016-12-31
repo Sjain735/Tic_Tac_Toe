@@ -94,28 +94,28 @@ public class Game_Screen extends AppCompatActivity implements View.OnClickListen
 
             if(comp_icon==0){
                 switch (moves[i]){
-                    case 1 : image_1.setImageResource(R.drawable.icon_circle); break;
-                    case 2 : image_2.setImageResource(R.drawable.icon_circle); break;
-                    case 3 : image_3.setImageResource(R.drawable.icon_circle); break;
-                    case 4 : image_4.setImageResource(R.drawable.icon_circle); break;
-                    case 5 : image_5.setImageResource(R.drawable.icon_circle); break;
-                    case 6 : image_6.setImageResource(R.drawable.icon_circle); break;
-                    case 7 : image_7.setImageResource(R.drawable.icon_circle); break;
-                    case 8 : image_8.setImageResource(R.drawable.icon_circle); break;
-                    case 9 : image_9.setImageResource(R.drawable.icon_circle); break;
+                    case 1 : image_1.setImageResource(R.drawable.icon_circle); image_1.setClickable(false); break;
+                    case 2 : image_2.setImageResource(R.drawable.icon_circle); image_2.setClickable(false); break;
+                    case 3 : image_3.setImageResource(R.drawable.icon_circle); image_3.setClickable(false); break;
+                    case 4 : image_4.setImageResource(R.drawable.icon_circle); image_4.setClickable(false); break;
+                    case 5 : image_5.setImageResource(R.drawable.icon_circle); image_5.setClickable(false); break;
+                    case 6 : image_6.setImageResource(R.drawable.icon_circle); image_6.setClickable(false); break;
+                    case 7 : image_7.setImageResource(R.drawable.icon_circle); image_7.setClickable(false); break;
+                    case 8 : image_8.setImageResource(R.drawable.icon_circle); image_8.setClickable(false); break;
+                    case 9 : image_9.setImageResource(R.drawable.icon_circle); image_9.setClickable(false); break;
                 }//switch - circle
             }//if
             else if (comp_icon == 111){
                 switch (moves[i]){
-                    case 1 : image_1.setImageResource(R.drawable.icon_cross); break;
-                    case 2 : image_2.setImageResource(R.drawable.icon_cross); break;
-                    case 3 : image_3.setImageResource(R.drawable.icon_cross); break;
-                    case 4 : image_4.setImageResource(R.drawable.icon_cross); break;
-                    case 5 : image_5.setImageResource(R.drawable.icon_cross); break;
-                    case 6 : image_6.setImageResource(R.drawable.icon_cross); break;
-                    case 7 : image_7.setImageResource(R.drawable.icon_cross); break;
-                    case 8 : image_8.setImageResource(R.drawable.icon_cross); break;
-                    case 9 : image_9.setImageResource(R.drawable.icon_cross); break;
+                    case 1 : image_1.setImageResource(R.drawable.icon_cross); image_1.setClickable(false); break;
+                    case 2 : image_2.setImageResource(R.drawable.icon_cross); image_2.setClickable(false); break;
+                    case 3 : image_3.setImageResource(R.drawable.icon_cross); image_3.setClickable(false); break;
+                    case 4 : image_4.setImageResource(R.drawable.icon_cross); image_4.setClickable(false); break;
+                    case 5 : image_5.setImageResource(R.drawable.icon_cross); image_5.setClickable(false); break;
+                    case 6 : image_6.setImageResource(R.drawable.icon_cross); image_6.setClickable(false); break;
+                    case 7 : image_7.setImageResource(R.drawable.icon_cross); image_7.setClickable(false); break;
+                    case 8 : image_8.setImageResource(R.drawable.icon_cross); image_8.setClickable(false); break;
+                    case 9 : image_9.setImageResource(R.drawable.icon_cross); image_9.setClickable(false); break;
                 }//switch - cross
             }//else if
 
@@ -173,46 +173,55 @@ public class Game_Screen extends AppCompatActivity implements View.OnClickListen
         if (player_icon == 111){
             switch (v.getId()){
                 case R.id.game_sign_1 : image_1.setImageResource(R.drawable.icon_cross);
+                                        image_1.setClickable(false);
                                         array_deletion(moves,1);
                                         comp_turn_easy();
                                         break;
 
                 case R.id.game_sign_2 : image_2.setImageResource(R.drawable.icon_cross);
+                                        image_2.setClickable(false);
                                         array_deletion(moves,2);
                                         comp_turn_easy();
                                         break;
 
                 case R.id.game_sign_3 : image_3.setImageResource(R.drawable.icon_cross);
+                                        image_3.setClickable(false);
                                         array_deletion(moves,3);
                                         comp_turn_easy();
                                         break;
 
                 case R.id.game_sign_4 : image_4.setImageResource(R.drawable.icon_cross);
+                                        image_4.setClickable(false);
                                         array_deletion(moves,4);
                                         comp_turn_easy();
                                         break;
 
                 case R.id.game_sign_5 : image_5.setImageResource(R.drawable.icon_cross);
+                                        image_5.setClickable(false);
                                         array_deletion(moves,5);
                                         comp_turn_easy();
                                         break;
 
                 case R.id.game_sign_6 : image_6.setImageResource(R.drawable.icon_cross);
+                                        image_6.setClickable(false);
                                         array_deletion(moves,6);
                                         comp_turn_easy();
                                         break;
 
                 case R.id.game_sign_7 : image_7.setImageResource(R.drawable.icon_cross);
+                                        image_7.setClickable(false);
                                         array_deletion(moves,7);
                                         comp_turn_easy();
                                         break;
 
                 case R.id.game_sign_8 : image_8.setImageResource(R.drawable.icon_cross);
+                                        image_8.setClickable(false);
                                         array_deletion(moves,8);
                                         comp_turn_easy();
                                         break;
 
                 case R.id.game_sign_9 : image_9.setImageResource(R.drawable.icon_cross);
+                                        image_9.setClickable(false);
                                         array_deletion(moves,9);
                                         comp_turn_easy();
                                         break;
@@ -221,49 +230,59 @@ public class Game_Screen extends AppCompatActivity implements View.OnClickListen
         else if (player_icon == 0){
             switch (v.getId()){
                 case R.id.game_sign_1 : image_1.setImageResource(R.drawable.icon_circle);
-                    array_deletion(moves,1);
-                    comp_turn_easy();
-                    break;
+                                        image_1.setClickable(false);
+                                        array_deletion(moves,1);
+                                        comp_turn_easy();
+                                        break;
 
                 case R.id.game_sign_2 : image_2.setImageResource(R.drawable.icon_circle);
-                    array_deletion(moves,2);
-                    comp_turn_easy();
-                    break;
+                                        image_2.setClickable(false);
+                                        array_deletion(moves,2);
+                                        comp_turn_easy();
+                                        break;
 
                 case R.id.game_sign_3 : image_3.setImageResource(R.drawable.icon_circle);
-                    array_deletion(moves,3);
-                    comp_turn_easy();
-                    break;
+                                        image_3.setClickable(false);
+                                        array_deletion(moves,3);
+                                        comp_turn_easy();
+                                        break;
 
                 case R.id.game_sign_4 : image_4.setImageResource(R.drawable.icon_circle);
-                    array_deletion(moves,4);
-                    comp_turn_easy();
-                    break;
+                                        image_4.setClickable(false);
+                                        array_deletion(moves,4);
+                                        comp_turn_easy();
+                                        break;
 
                 case R.id.game_sign_5 : image_5.setImageResource(R.drawable.icon_circle);
-                    array_deletion(moves,5);
-                    comp_turn_easy();
-                    break;
+                                        image_5.setClickable(false);
+                                        array_deletion(moves,5);
+                                        comp_turn_easy();
+                                        break;
 
                 case R.id.game_sign_6 : image_6.setImageResource(R.drawable.icon_circle);
-                    array_deletion(moves,6);
-                    comp_turn_easy();
-                    break;
+                                        image_6.setClickable(false);
+                                        array_deletion(moves,6);
+                                        comp_turn_easy();
+                                        break;
 
                 case R.id.game_sign_7 : image_7.setImageResource(R.drawable.icon_circle);
-                    array_deletion(moves,7);
-                    comp_turn_easy();
-                    break;
+                                        image_7.setClickable(false);
+                                        array_deletion(moves,7);
+                                        comp_turn_easy();
+                                        break;
 
                 case R.id.game_sign_8 : image_8.setImageResource(R.drawable.icon_circle);
-                    array_deletion(moves,8);
-                    comp_turn_easy();
-                    break;
+                                        image_8.setClickable(false);
+                                        array_deletion(moves,8);
+                                        comp_turn_easy();
+                                        break;
 
                 case R.id.game_sign_9 : image_9.setImageResource(R.drawable.icon_circle);
-                    array_deletion(moves,9);
-                    comp_turn_easy();
-                    break;
+                                        image_9.setClickable(false);
+                                        array_deletion(moves,9);
+                                        comp_turn_easy();
+                                        break;
+
             }//switch - circle
         }//else if
     }//onClick
