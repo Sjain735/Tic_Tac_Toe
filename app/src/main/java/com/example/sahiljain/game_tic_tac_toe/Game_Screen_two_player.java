@@ -88,54 +88,63 @@ public class Game_Screen_two_player extends AppCompatActivity implements View.On
             switch (v.getId()){
                 case R.id.game_sign_1 : image_1.setImageResource(R.drawable.icon_circle);
                                         image_1.setClickable(false);
+                                        rc[0][0] = 0;
                                         if (check_win_circle())
                                             dec_win(0);
                                         break;
 
                 case R.id.game_sign_2 : image_2.setImageResource(R.drawable.icon_circle);
                                         image_2.setClickable(false);
+                                        rc[0][1] = 0;
                                         if (check_win_circle())
                                             dec_win(0);
                                         break;
 
                 case R.id.game_sign_3 : image_3.setImageResource(R.drawable.icon_circle);
                                         image_3.setClickable(false);
+                                        rc[0][2] = 0;
                                         if (check_win_circle())
                                             dec_win(0);
                                         break;
 
                 case R.id.game_sign_4 : image_4.setImageResource(R.drawable.icon_circle);
                                         image_4.setClickable(false);
+                                        rc[1][0] = 0;
                                         if (check_win_circle())
                                             dec_win(0);
                                         break;
 
                 case R.id.game_sign_5 : image_5.setImageResource(R.drawable.icon_circle);
                                         image_5.setClickable(false);
+                                        rc[1][1] = 0;
                                         if (check_win_circle())
                                         dec_win(0);
                                         break;
 
                 case R.id.game_sign_6 : image_6.setImageResource(R.drawable.icon_circle);
                                         image_6.setClickable(false);
+                                        rc[1][2] = 0;
                                         if (check_win_circle())
                                             dec_win(0);
                                         break;
 
                 case R.id.game_sign_7 : image_7.setImageResource(R.drawable.icon_circle);
                                         image_7.setClickable(false);
+                                        rc[2][0] = 0;
                                         if (check_win_circle())
                                             dec_win(0);
                                         break;
 
                 case R.id.game_sign_8 : image_8.setImageResource(R.drawable.icon_circle);
                                         image_8.setClickable(false);
+                                        rc[2][1] = 0;
                                         if (check_win_circle())
                                             dec_win(0);
                                         break;
 
                 case R.id.game_sign_9 : image_9.setImageResource(R.drawable.icon_circle);
                                         image_9.setClickable(false);
+                                        rc[2][2] = 0;
                                         if (check_win_circle())
                                             dec_win(0);
                                         break;
@@ -148,54 +157,63 @@ public class Game_Screen_two_player extends AppCompatActivity implements View.On
             switch (v.getId()){
                 case R.id.game_sign_1 : image_1.setImageResource(R.drawable.icon_cross);
                                         image_1.setClickable(false);
+                                        rc[0][0] = 1;
                                         if (check_win_cross())
                                             dec_win(1);
                                         break;
 
                 case R.id.game_sign_2 : image_2.setImageResource(R.drawable.icon_cross);
                                         image_2.setClickable(false);
+                                        rc[0][1] = 1;
                                         if (check_win_cross())
                                             dec_win(1);
                                         break;
 
                 case R.id.game_sign_3 : image_3.setImageResource(R.drawable.icon_cross);
                                         image_3.setClickable(false);
+                                        rc[0][2] = 1;
                                         if (check_win_cross())
                                             dec_win(1);
                                         break;
 
                 case R.id.game_sign_4 : image_4.setImageResource(R.drawable.icon_cross);
                                         image_4.setClickable(false);
+                                        rc[1][0] = 1;
                                         if (check_win_cross())
                                             dec_win(1);
                                         break;
 
                 case R.id.game_sign_5 : image_5.setImageResource(R.drawable.icon_cross);
                                         image_5.setClickable(false);
+                                        rc[1][1] = 1;
                                         if (check_win_cross())
                                             dec_win(1);
                                         break;
 
                 case R.id.game_sign_6 : image_6.setImageResource(R.drawable.icon_cross);
                                         image_6.setClickable(false);
+                                        rc[1][2] = 1;
                                         if (check_win_cross())
                                             dec_win(1);
                                         break;
 
                 case R.id.game_sign_7 : image_7.setImageResource(R.drawable.icon_cross);
                                         image_7.setClickable(false);
+                                        rc[2][0] = 1;
                                         if (check_win_cross())
                                             dec_win(1);
                                         break;
 
                 case R.id.game_sign_8 : image_8.setImageResource(R.drawable.icon_cross);
                                         image_8.setClickable(false);
+                                        rc[2][1] = 1;
                                         if (check_win_cross())
                                             dec_win(1);
                                         break;
 
                 case R.id.game_sign_9 : image_9.setImageResource(R.drawable.icon_cross);
                                         image_9.setClickable(false);
+                                        rc[2][2] = 1;
                                         if (check_win_cross())
                                             dec_win(1);
                                         break;
@@ -342,6 +360,7 @@ public class Game_Screen_two_player extends AppCompatActivity implements View.On
 
         btnAdd1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+              //Refresh this activity.....Maybe use "onResume()".
                 onCreate(Bundle.EMPTY);
             }
         });
