@@ -14,8 +14,8 @@ public class Game_Screen_two_player extends AppCompatActivity implements View.On
     TextView text_P_1;
     TextView text_p_2;
     ImageView image_1, image_2, image_3, image_4, image_5, image_6, image_7, image_8, image_9;
-    int p_icon = 1;
-    int p1_icon = 0;
+    int p_icon = 1; //Represents the turn of player 1 or 2
+    int p1_icon = 0; //to check the winning condition
     int rc[][] = new int[4][4];
 
     @Override
@@ -77,7 +77,7 @@ public class Game_Screen_two_player extends AppCompatActivity implements View.On
 
         rc_init();
 
-    }//onCreate
+    }//onCreate()
 
 
     @Override
@@ -221,7 +221,7 @@ public class Game_Screen_two_player extends AppCompatActivity implements View.On
             }//switch - cross
         }//else if
 
-    }//onClick
+    }//onClick()
 
     public void rc_init(){
         int i,j;
@@ -284,7 +284,7 @@ public class Game_Screen_two_player extends AppCompatActivity implements View.On
         }//if position 7
 
         return false;
-    }//check win cross
+    }//check win cross()
 
     public boolean check_win_circle(){
 
@@ -336,7 +336,7 @@ public class Game_Screen_two_player extends AppCompatActivity implements View.On
         }//if position 7
 
         return false;
-    }//check win cross
+    }//check win cross()
 
     public void dec_win(int a){
 
@@ -361,7 +361,6 @@ public class Game_Screen_two_player extends AppCompatActivity implements View.On
         btnAdd1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
               //Refresh this activity.....Maybe use "onResume()".
-                onCreate(Bundle.EMPTY);
             }
         });
 
